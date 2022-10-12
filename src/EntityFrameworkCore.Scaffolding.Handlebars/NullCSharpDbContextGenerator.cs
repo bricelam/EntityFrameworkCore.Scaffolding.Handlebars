@@ -6,7 +6,7 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
     /// <summary>
     /// DbContext generator that does not generate any code.
     /// </summary>
-    public class NullCSharpDbContextGenerator : ICSharpDbContextGenerator
+    public class NullCSharpDbContextGenerator
     {
         /// <summary>
         /// Generate the DbContext class.

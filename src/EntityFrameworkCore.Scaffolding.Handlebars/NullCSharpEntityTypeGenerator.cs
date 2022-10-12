@@ -6,7 +6,7 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
     /// <summary>
     /// Entity type generator that does not generate any code.
     /// </summary>
-    public class NullCSharpEntityTypeGenerator : ICSharpEntityTypeGenerator
+    public class NullCSharpEntityTypeGenerator
     {
         /// <summary>
         /// Generate entity type class.

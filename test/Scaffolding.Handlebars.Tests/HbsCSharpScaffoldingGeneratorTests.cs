@@ -176,7 +176,7 @@ namespace Scaffolding.Handlebars.Tests
                     Language = "C#",
                     SuppressOnConfiguring = suppressOnConfiguring
                 });
-                
+
             // Assert
             var files = GetGeneratedFiles(model, options);
             object expectedContext;
@@ -221,7 +221,7 @@ namespace Scaffolding.Handlebars.Tests
                     Language = "C#",
                     SuppressOnConfiguring = suppressOnConfiguring
                 });
-                
+
             // Assert
             var files = GetGeneratedFiles(model, options);
             object expectedContext;
@@ -687,7 +687,7 @@ namespace Scaffolding.Handlebars.Tests
                     entityFileNameTransformer: entityName => !string.IsNullOrWhiteSpace(filenamePrefix) ? $"{filenamePrefix}{entityName}" : entityName,
                     entityTypeNameTransformer: entityName => useEntityTransformMappings ? HandlebarsTransformers.MapEntityName(entityName) : entityName,
                     constructorTransformer: epi => useEntityTransformMappings ? HandlebarsTransformers.MapPropertyInfo(epi) : epi,
-                    propertyTransformer: epi => useEntityTransformMappings ? HandlebarsTransformers.MapPropertyInfo(epi) : epi,                     
+                    propertyTransformer: epi => useEntityTransformMappings ? HandlebarsTransformers.MapPropertyInfo(epi) : epi,
                     navPropertyTransformer: epi => useEntityTransformMappings ? HandlebarsTransformers.MapNavPropertyInfo(epi) : epi
                 ));
 

@@ -26,7 +26,8 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
     /// <summary>
     /// Generator for the DbContext class using Handlebars templates.
     /// </summary>
-    public class HbsCSharpDbContextGenerator : CSharpDbContextGenerator
+    // TODO: Was CSharpDbContextGenerator used?
+    public class HbsCSharpDbContextGenerator
     {
         private const string EntityLambdaIdentifier = "entity";
         private const string Language = "CSharp";
@@ -91,7 +92,6 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
             [NotNull] IEntityTypeTransformationService entityTypeTransformationService,
             [NotNull] ICSharpHelper cSharpHelper,
             [NotNull] IOptions<HandlebarsScaffoldingOptions> options)
-            : base(providerConfigurationCodeGenerator, annotationCodeGenerator, cSharpHelper)
         {
             ProviderConfigurationCodeGenerator = providerConfigurationCodeGenerator;
             AnnotationCodeGenerator = annotationCodeGenerator;
@@ -114,7 +114,7 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
         /// <param name="suppressConnectionStringWarning">Suppress connection string warning.</param>
         /// <param name="suppressOnConfiguring">Suppress OnConfiguring method.</param>
         /// <returns>DbContext class.</returns>
-        public override string WriteCode(IModel model, string contextName, string connectionString, string contextNamespace,
+        public virtual string WriteCode(IModel model, string contextName, string connectionString, string contextNamespace,
             string modelNamespace, bool useDataAnnotations, bool useNullableReferenceTypes, bool suppressConnectionStringWarning, bool suppressOnConfiguring)
         {
             Check.NotNull(model, nameof(model));
@@ -150,7 +150,7 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
         /// <param name="connectionString">Database connection string.</param>
         /// <param name="suppressConnectionStringWarning">Suppress connection string warning.</param>
         /// <param name="suppressOnConfiguring">Suppress OnConfiguring method.</param>
-        protected override void GenerateClass([NotNull] IModel model, [NotNull] string contextName, [NotNull] string connectionString,
+        protected virtual void GenerateClass([NotNull] IModel model, [NotNull] string contextName, [NotNull] string connectionString,
             bool suppressConnectionStringWarning, bool suppressOnConfiguring)
         {
             Check.NotNull(model, nameof(model));
@@ -163,7 +163,6 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
                 GenerateModelImports(model);
             TemplateData.Add("class", contextName);
             GenerateDbSets(model);
-            GenerateEntityTypeErrors(model);
             if (suppressOnConfiguring)
                 TemplateData.Add("suppress-on-configuring", true);
             else
@@ -176,7 +175,7 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
         /// </summary>
         /// <param name="connectionString">Database connection string.</param>
         /// <param name="suppressConnectionStringWarning">Suppress connection string warning.</param>
-        protected override void GenerateOnConfiguring([NotNull] string connectionString, bool suppressConnectionStringWarning)
+        protected virtual void GenerateOnConfiguring([NotNull] string connectionString, bool suppressConnectionStringWarning)
         {
             Check.NotNull(connectionString, nameof(connectionString));
 
@@ -201,7 +200,7 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
         /// Generate OnModelBuilding method.
         /// </summary>
         /// <param name="model">Metadata about the shape of entities, the relationships between them, and how they map to the database.</param>
-        protected override void GenerateOnModelCreating([NotNull] IModel model)
+        protected virtual void GenerateOnModelCreating([NotNull] IModel model)
         {
             Check.NotNull(model, nameof(model));
 
@@ -221,7 +220,6 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
                 annotations.Remove(CoreAnnotationNames.ProductVersion);
                 annotations.Remove(RelationalAnnotationNames.MaxIdentifierLength);
                 annotations.Remove(ScaffoldingAnnotationNames.DatabaseName);
-                annotations.Remove(ScaffoldingAnnotationNames.EntityTypeErrors);
 
                 var lines = new List<string>();
 
@@ -330,21 +328,6 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
             }
 
             TemplateData.Add("model-imports", modelImports);
-        }
-
-        private void GenerateEntityTypeErrors(IModel model)
-        {
-            var entityTypeErrors = new List<Dictionary<string, object>>();
-
-            foreach (var entityTypeError in model.GetEntityTypeErrors())
-            {
-                entityTypeErrors.Add(new Dictionary<string, object>
-                {
-                    { "entity-type-error", $"// {entityTypeError.Value} Please see the warning messages." },
-                });
-            }
-
-            TemplateData.Add("entity-type-errors", entityTypeErrors);
         }
 
         private void InitializeEntityTypeBuilder(IEntityType entityType, IndentedStringBuilder sb)

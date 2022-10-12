@@ -19,7 +19,8 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
     /// <summary>
     /// Generator for entity type classes using Handlebars templates.
     /// </summary>
-    public class HbsTypeScriptEntityTypeGenerator : CSharpEntityTypeGenerator
+    // TODO: Was CSharpEntityTypeGenerator used?
+    public class HbsTypeScriptEntityTypeGenerator
     {
         /// <summary>
         /// CSharp helper.
@@ -69,7 +70,6 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
             [NotNull] ICSharpHelper cSharpHelper,
             [NotNull] ITypeScriptHelper typeScriptHelper,
             [NotNull] IOptions<HandlebarsScaffoldingOptions> options)
-            : base(annotationCodeGenerator, cSharpHelper)
         {
             EntityTypeTemplateService = entityTypeTemplateService;
             EntityTypeTransformationService = entityTypeTransformationService;
@@ -86,7 +86,7 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
         /// <param name="useDataAnnotations">If true use data annotations.</param>
         /// <param name="useNullableReferenceTypes">If true use nullable reference types.</param>
         /// <returns>Generated entity type.</returns>
-        public override string WriteCode(IEntityType entityType, string @namespace, bool useDataAnnotations, bool useNullableReferenceTypes)
+        public virtual string WriteCode(IEntityType entityType, string @namespace, bool useDataAnnotations, bool useNullableReferenceTypes)
         {
             Check.NotNull(entityType, nameof(entityType));
             Check.NotNull(@namespace, nameof(@namespace));
@@ -135,7 +135,7 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
         /// Generate entity type class.
         /// </summary>
         /// <param name="entityType">Represents an entity type in an <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IModel" />.</param>
-        protected override void GenerateClass(IEntityType entityType)
+        protected virtual void GenerateClass(IEntityType entityType)
         {
             Check.NotNull(entityType, nameof(entityType));
 
@@ -154,7 +154,7 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
         /// Generate entity type constructor.
         /// </summary>
         /// <param name="entityType">Represents an entity type in an <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IModel" />.</param>
-        protected override void GenerateConstructor(IEntityType entityType)
+        protected virtual void GenerateConstructor(IEntityType entityType)
         {
             Check.NotNull(entityType, nameof(entityType));
 
@@ -183,7 +183,7 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
         /// Generate entity type properties.
         /// </summary>
         /// <param name="entityType">Represents an entity type in an <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IModel" />.</param>
-        protected override void GenerateProperties(IEntityType entityType)
+        protected virtual void GenerateProperties(IEntityType entityType)
         {
             Check.NotNull(entityType, nameof(entityType));
 
@@ -211,7 +211,7 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
         /// Generate entity type navigation properties.
         /// </summary>
         /// <param name="entityType">Represents an entity type in an <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IModel" />.</param>
-        protected override void GenerateNavigationProperties(IEntityType entityType)
+        protected virtual void GenerateNavigationProperties(IEntityType entityType)
         {
             Check.NotNull(entityType, nameof(entityType));
 
@@ -246,7 +246,7 @@ namespace EntityFrameworkCore.Scaffolding.Handlebars
         /// Generate entity type skip navigation properties.
         /// </summary>
         /// <param name="entityType">Represents an entity type in an <see cref="T:Microsoft.EntityFrameworkCore.Metadata.IModel" />.</param>
-        protected override void GenerateSkipNavigationProperties(IEntityType entityType)
+        protected virtual void GenerateSkipNavigationProperties(IEntityType entityType)
         {
             Check.NotNull(entityType, nameof(entityType));
 

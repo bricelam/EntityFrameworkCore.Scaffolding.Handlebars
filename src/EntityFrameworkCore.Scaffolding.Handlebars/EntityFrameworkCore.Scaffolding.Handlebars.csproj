@@ -19,7 +19,7 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
     <AssemblyVersion>6.0.0.0</AssemblyVersion>
     <FileVersion>6.0.0.0</FileVersion>
-	<GenerateDocumentationFile>True</GenerateDocumentationFile>
+  <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,8 +29,8 @@
   <ItemGroup>
     <PackageReference Include="Handlebars.Net" Version="2.0.10" />
     <PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.0-rc.2.22472.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0-rc.2.22472.11" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,60 +41,60 @@
   </ItemGroup>
 
   <ItemGroup>
-	<None Update="CodeTemplates\CSharpDbContext\DbContext.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\CSharpDbContext\Partials\DbImports.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\CSharpDbContext\Partials\DbConstructor.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\CSharpDbContext\Partials\DbOnConfiguring.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\CSharpDbContext\Partials\DbSets.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\CSharpEntityType\Class.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\CSharpEntityType\Partials\Constructor.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\CSharpEntityType\Partials\Imports.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\CSharpEntityType\Partials\Properties.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\TypeScriptDbContext\DbContext.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\TypeScriptDbContext\Partials\DbImports.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\TypeScriptDbContext\Partials\DbConstructor.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\TypeScriptDbContext\Partials\DbOnConfiguring.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\TypeScriptDbContext\Partials\DbSets.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\TypeScriptEntityType\Class.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\TypeScriptEntityType\Partials\Constructor.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\TypeScriptEntityType\Partials\Imports.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
-	<None Update="CodeTemplates\TypeScriptEntityType\Partials\Properties.hbs">
-		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	</None>
+  <None Update="CodeTemplates\CSharpDbContext\DbContext.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\CSharpDbContext\Partials\DbImports.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\CSharpDbContext\Partials\DbConstructor.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\CSharpDbContext\Partials\DbOnConfiguring.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\CSharpDbContext\Partials\DbSets.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\CSharpEntityType\Class.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\CSharpEntityType\Partials\Constructor.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\CSharpEntityType\Partials\Imports.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\CSharpEntityType\Partials\Properties.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\TypeScriptDbContext\DbContext.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\TypeScriptDbContext\Partials\DbImports.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\TypeScriptDbContext\Partials\DbConstructor.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\TypeScriptDbContext\Partials\DbOnConfiguring.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\TypeScriptDbContext\Partials\DbSets.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\TypeScriptEntityType\Class.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\TypeScriptEntityType\Partials\Constructor.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\TypeScriptEntityType\Partials\Imports.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="CodeTemplates\TypeScriptEntityType\Partials\Properties.hbs">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
   </ItemGroup>
 
 </Project>

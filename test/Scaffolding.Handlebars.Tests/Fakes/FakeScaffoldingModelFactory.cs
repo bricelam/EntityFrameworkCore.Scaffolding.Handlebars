@@ -22,9 +22,8 @@ namespace Scaffolding.Handlebars.Tests.Fakes
             IPluralizer pluralizer,
             ICSharpUtilities cSharpUtilities,
             IScaffoldingTypeMapper scaffoldingTypeMapper,
-            LoggingDefinitions loggingDefinitions,
             IModelRuntimeInitializer modelRuntimeInitializer)
-            : base(reporter, candidateNamingService, pluralizer, cSharpUtilities, scaffoldingTypeMapper, loggingDefinitions, modelRuntimeInitializer)
+            : base(reporter, candidateNamingService, pluralizer, cSharpUtilities, scaffoldingTypeMapper, modelRuntimeInitializer)
         {
         }
 
